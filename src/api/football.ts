@@ -1,7 +1,10 @@
 import type { MatchesResponse, MatchDetailResponse } from '../types';
 
-// API 기본 설정 - Vite 프록시를 통해 요청
-const API_BASE_URL = '/api';
+// 개발 환경에서는 프록시 사용, 프로덕션에서는 직접 호출
+const API_BASE_URL = import.meta.env.DEV
+    ? '/api'
+    : 'https://api.football-data.org/v4';
+
 const API_KEY = import.meta.env.VITE_FOOTBALL_API_KEY;
 
 // API 헤더 설정
