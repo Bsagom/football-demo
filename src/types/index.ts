@@ -146,3 +146,41 @@ export interface MatchesResponse {
 export interface MatchDetailResponse {
     match: MatchDetail;
 }
+
+// 팀 순위 정보
+export interface Standing {
+    position: number;
+    team: Team;
+    playedGames: number;
+    won: number;
+    draw: number;
+    lost: number;
+    points: number;
+    goalsFor: number;
+    goalsAgainst: number;
+    goalDifference: number;
+}
+
+// 득점자 정보
+export interface Scorer {
+    player: {
+        id: number;
+        name: string;
+        nationality: string;
+    };
+    team: Team;
+    goals: number;
+    assists: number | null;
+    penalties: number | null;
+}
+
+export interface StandingsResponse {
+    standings: Array<{
+        type: string;
+        table: Standing[];
+    }>;
+}
+
+export interface ScorersResponse {
+    scorers: Scorer[];
+}
