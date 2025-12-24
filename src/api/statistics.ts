@@ -1,6 +1,10 @@
 import type { StandingsResponse, ScorersResponse } from '../types';
 
-const API_BASE_URL = '/api';
+// 개발 환경에서는 프록시 사용, 프로덕션에서는 직접 호출
+const API_BASE_URL = import.meta.env.DEV
+    ? '/api'
+    : 'https://api.football-data.org/v4';
+
 const API_KEY = import.meta.env.VITE_FOOTBALL_API_KEY;
 
 const getHeaders = () => ({
