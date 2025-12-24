@@ -1,10 +1,7 @@
 import type { MatchesResponse, MatchDetailResponse } from '../types';
 
-// 개발 환경에서는 프록시 사용, 프로덕션에서는 직접 호출
-const API_BASE_URL = import.meta.env.DEV
-    ? '/api'
-    : 'https://api.football-data.org/v4';
-
+// Vercel 서버리스 함수 프록시 사용
+const API_BASE_URL = '/api';
 const API_KEY = import.meta.env.VITE_FOOTBALL_API_KEY;
 
 // API 헤더 설정
